@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameStore - Jual Game Online</title>
+
+    <title>GameStore - Toko Game Online</title>
 
     <style>
         * {
@@ -14,13 +15,13 @@
         }
 
         body {
-            background: #111827;
+            background: #0f172a;
             color: white;
         }
 
-        /* Navbar */
+        /* NAVBAR */
         nav {
-            background: #1f2937;
+            background: #111827;
             padding: 18px 8%;
             display: flex;
             justify-content: space-between;
@@ -28,16 +29,17 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
         }
 
         nav h1 {
-            color: #60a5fa;
+            color: #38bdf8;
         }
 
         nav ul {
             display: flex;
-            list-style: none;
             gap: 25px;
+            list-style: none;
         }
 
         nav ul li a {
@@ -46,18 +48,18 @@
         }
 
         nav ul li a:hover {
-            color: #60a5fa;
+            color: #38bdf8;
         }
 
-        /* Hero */
+        /* HERO */
         .hero {
-            min-height: 450px;
+            min-height: 430px;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 50px 20px;
-            background: linear-gradient(135deg, #111827, #1d4ed8);
+            padding: 30px;
+            background: linear-gradient(135deg, #0f172a, #1e40af);
         }
 
         .hero h2 {
@@ -66,28 +68,26 @@
         }
 
         .hero p {
+            color: #cbd5e1;
             font-size: 18px;
             margin-bottom: 25px;
-            color: #d1d5db;
         }
 
         .btn {
-            display: inline-block;
-            padding: 12px 25px;
+            border: none;
             background: #2563eb;
             color: white;
-            text-decoration: none;
+            padding: 12px 20px;
             border-radius: 8px;
-            border: none;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 15px;
         }
 
         .btn:hover {
             background: #1d4ed8;
         }
 
-        /* Produk */
+        /* PRODUK */
         .produk {
             padding: 60px 8%;
         }
@@ -95,7 +95,6 @@
         .produk h2 {
             text-align: center;
             margin-bottom: 35px;
-            font-size: 32px;
         }
 
         .game-container {
@@ -105,20 +104,20 @@
         }
 
         .game-card {
-            background: #1f2937;
+            background: #1e293b;
             border-radius: 12px;
             overflow: hidden;
-            transition: 0.3s;
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: 0.3s;
         }
 
         .game-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-7px);
         }
 
         .game-card img {
             width: 100%;
-            height: 250px;
+            height: 230px;
             object-fit: cover;
         }
 
@@ -131,45 +130,148 @@
         }
 
         .game-info p {
-            color: #9ca3af;
+            color: #94a3b8;
             margin-bottom: 10px;
         }
 
-        .harga {
-            color: #60a5fa;
+        .price {
+            color: #38bdf8;
             font-size: 20px;
             font-weight: bold;
             margin-bottom: 15px;
         }
 
-        /* Tentang */
-        .tentang {
+        /* CHECKOUT */
+        .checkout {
+            display: none;
             padding: 60px 8%;
-            background: #1f2937;
-            text-align: center;
+            background: #020617;
         }
 
-        .tentang h2 {
+        .checkout-box {
+            max-width: 650px;
+            margin: auto;
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .checkout-box h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #38bdf8;
+        }
+
+        .checkout-box label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 7px;
+        }
+
+        .checkout-box input,
+        .checkout-box select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 7px;
+            border: 1px solid #475569;
+            background: #0f172a;
+            color: white;
+        }
+
+        .total {
+            background: #0f172a;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+            font-size: 20px;
+        }
+
+        /* INFORMASI PEMBAYARAN */
+        .payment-info {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: #0f172a;
+            border-radius: 10px;
+        }
+
+        .payment-info h3 {
+            color: #38bdf8;
             margin-bottom: 15px;
+        }
+
+        /* QRIS */
+        .qris-box {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            color: black;
+        }
+
+        .qris-box img {
+            width: 250px;
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .qris-box p {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        /* BUKTI PEMBAYARAN */
+        .bukti-box {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: #0f172a;
+            border-radius: 10px;
+        }
+
+        .bukti-box h3 {
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+
+        .bukti-box small {
+            display: block;
+            color: #94a3b8;
+            margin-top: 8px;
+        }
+
+        .file-name {
+            margin-top: 12px;
+            color: #4ade80;
+            display: none;
+        }
+
+        /* TENTANG */
+        .tentang {
+            padding: 60px 8%;
+            text-align: center;
+            background: #1e293b;
         }
 
         .tentang p {
             max-width: 700px;
-            margin: auto;
-            color: #d1d5db;
+            margin: 15px auto;
             line-height: 1.7;
+            color: #cbd5e1;
         }
 
-        /* Footer */
+        /* FOOTER */
         footer {
             text-align: center;
             padding: 25px;
-            background: #0f172a;
-            color: #9ca3af;
+            background: #020617;
+            color: #94a3b8;
         }
 
-        /* Responsif */
         @media (max-width: 600px) {
+
             nav {
                 flex-direction: column;
                 gap: 15px;
@@ -188,123 +290,640 @@
 
 <body>
 
-    <!-- Navbar -->
+    <!-- NAVBAR -->
     <nav>
+
         <h1>🎮 GameStore</h1>
 
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#game">Game</a></li>
+            <li><a href="#checkout">Pembayaran</a></li>
             <li><a href="#tentang">Tentang</a></li>
         </ul>
+
     </nav>
 
-    <!-- Hero -->
+
+    <!-- HERO -->
     <section class="hero" id="home">
+
         <div>
-            <h2>Temukan Game Favoritmu 🎮</h2>
-            <p>Beli game digital dengan harga terbaik dan proses cepat.</p>
-            <a href="#game" class="btn">Lihat Game</a>
+
+            <h2>🎮 GameStore</h2>
+
+            <p>
+                Temukan berbagai game favorit dengan harga terbaik.
+            </p>
+
+            <a href="#game">
+                <button class="btn">
+                    Lihat Game
+                </button>
+            </a>
+
         </div>
+
     </section>
 
-    <!-- Produk Game -->
+
+    <!-- PRODUK -->
     <section class="produk" id="game">
-        <h2>Game Terpopuler</h2>
+
+        <h2>🔥 Game Terpopuler</h2>
 
         <div class="game-container">
 
-            <!-- Game 1 -->
+            <!-- GAME 1 -->
             <div class="game-card">
-                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80"
-                     alt="Game Adventure">
+
+                <img
+                    src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80"
+                    alt="Adventure World">
 
                 <div class="game-info">
-                    <h3>Game Adventure</h3>
+
+                    <h3>Adventure World</h3>
+
                     <p>Adventure • Action</p>
-                    <div class="harga">Rp150.000</div>
 
-                    <button class="btn" onclick="beliGame('Game Adventure')">
+                    <div class="price">
+                        Rp150.000
+                    </div>
+
+                    <button
+                        class="btn"
+                        onclick="pilihGame('Adventure World', 150000)">
+
                         Beli Sekarang
+
                     </button>
+
                 </div>
+
             </div>
 
-            <!-- Game 2 -->
+
+            <!-- GAME 2 -->
             <div class="game-card">
-                <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=600&q=80"
-                     alt="Game Racing">
+
+                <img
+                    src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=600&q=80"
+                    alt="Speed Racing">
 
                 <div class="game-info">
+
                     <h3>Speed Racing</h3>
+
                     <p>Racing • Sport</p>
-                    <div class="harga">Rp120.000</div>
 
-                    <button class="btn" onclick="beliGame('Speed Racing')">
+                    <div class="price">
+                        Rp120.000
+                    </div>
+
+                    <button
+                        class="btn"
+                        onclick="pilihGame('Speed Racing', 120000)">
+
                         Beli Sekarang
+
                     </button>
+
                 </div>
+
             </div>
 
-            <!-- Game 3 -->
+
+            <!-- GAME 3 -->
             <div class="game-card">
-                <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?auto=format&fit=crop&w=600&q=80"
-                     alt="Game Fantasy">
+
+                <img
+                    src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?auto=format&fit=crop&w=600&q=80"
+                    alt="Fantasy World">
 
                 <div class="game-info">
+
                     <h3>Fantasy World</h3>
-                    <p>RPG • Fantasy</p>
-                    <div class="harga">Rp200.000</div>
 
-                    <button class="btn" onclick="beliGame('Fantasy World')">
+                    <p>RPG • Fantasy</p>
+
+                    <div class="price">
+                        Rp200.000
+                    </div>
+
+                    <button
+                        class="btn"
+                        onclick="pilihGame('Fantasy World', 200000)">
+
                         Beli Sekarang
+
                     </button>
+
                 </div>
+
             </div>
 
-            <!-- Game 4 -->
+
+            <!-- GAME 4 -->
             <div class="game-card">
-                <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?auto=format&fit=crop&w=600&q=80"
-                     alt="Game Shooter">
+
+                <img
+                    src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?auto=format&fit=crop&w=600&q=80"
+                    alt="Battle Zone">
 
                 <div class="game-info">
-                    <h3>Battle Zone</h3>
-                    <p>Action • Shooter</p>
-                    <div class="harga">Rp175.000</div>
 
-                    <button class="btn" onclick="beliGame('Battle Zone')">
+                    <h3>Battle Zone</h3>
+
+                    <p>Action • Shooter</p>
+
+                    <div class="price">
+                        Rp175.000
+                    </div>
+
+                    <button
+                        class="btn"
+                        onclick="pilihGame('Battle Zone', 175000)">
+
                         Beli Sekarang
+
                     </button>
+
                 </div>
+
             </div>
 
         </div>
+
     </section>
 
-    <!-- Tentang -->
-    <section class="tentang" id="tentang">
+
+    <!-- CHECKOUT -->
+    <section class="checkout" id="checkout">
+
+        <div class="checkout-box">
+
+            <h2>💳 Checkout</h2>
+
+
+            <!-- GAME -->
+            <label>Game yang dipilih</label>
+
+            <input
+                type="text"
+                id="gameDipilih"
+                readonly>
+
+
+            <!-- NAMA -->
+            <label>Nama Pembeli</label>
+
+            <input
+                type="text"
+                id="nama"
+                placeholder="Masukkan nama">
+
+
+            <!-- EMAIL -->
+            <label>Email</label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Masukkan email">
+
+
+            <!-- METODE -->
+            <label>Metode Pembayaran</label>
+
+            <select
+                id="payment"
+                onchange="ubahPembayaran()">
+
+                <option value="">
+                    -- Pilih Pembayaran --
+                </option>
+
+                <option value="qris">
+                    📱 QRIS
+                </option>
+
+                <option value="dana">
+                    DANA
+                </option>
+
+                <option value="gopay">
+                    GoPay
+                </option>
+
+                <option value="ovo">
+                    OVO
+                </option>
+
+                <option value="bca">
+                    🏦 Transfer Bank BCA
+                </option>
+
+                <option value="bri">
+                    🏦 Transfer Bank BRI
+                </option>
+
+            </select>
+
+
+            <!-- QRIS -->
+            <div
+                class="qris-box"
+                id="qrisBox">
+
+                <h3>📱 Scan QRIS</h3>
+
+                <!-- GANTI URL INI DENGAN FOTO QRIS TOKO -->
+                <img
+                    src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=GAMESTORE-PEMBAYARAN"
+                    alt="QRIS GameStore">
+
+                <p>
+                    Scan QRIS untuk melakukan pembayaran
+                </p>
+
+            </div>
+
+
+            <!-- INFO PEMBAYARAN -->
+            <div
+                class="payment-info"
+                id="paymentInfo">
+
+            </div>
+
+
+            <!-- BUKTI PEMBAYARAN -->
+            <div
+                class="bukti-box"
+                id="buktiBox">
+
+                <h3>📷 Upload Bukti Pembayaran</h3>
+
+                <input
+                    type="file"
+                    id="buktiPembayaran"
+                    accept="image/*"
+                    onchange="cekBukti()">
+
+                <small>
+                    Format: JPG, JPEG, PNG. Maksimal 15 MB.
+                </small>
+
+                <div
+                    class="file-name"
+                    id="fileName">
+
+                    ✅ Bukti pembayaran berhasil dipilih.
+
+                </div>
+
+            </div>
+
+
+            <!-- TOTAL -->
+            <div class="total">
+
+                Total Pembayaran:
+
+                <strong id="totalHarga">
+                    Rp0
+                </strong>
+
+            </div>
+
+
+            <!-- BAYAR -->
+            <button
+                class="btn"
+                onclick="prosesPembayaran()">
+
+                Kirim Pesanan 💳
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- TENTANG -->
+    <section
+        class="tentang"
+        id="tentang">
+
         <h2>Tentang GameStore</h2>
 
         <p>
-            GameStore adalah website toko game digital yang menyediakan
-            berbagai macam game untuk para gamers. Kami menyediakan game
-            dengan harga terjangkau dan proses pembelian yang mudah.
+            GameStore adalah website toko game digital yang
+            menyediakan berbagai macam game dengan harga
+            terjangkau. Pembeli dapat memilih game,
+            melakukan pembayaran, dan mengirimkan bukti
+            pembayaran melalui website.
         </p>
+
     </section>
 
-    <!-- Footer -->
+
+    <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 GameStore. Semua Hak Dilindungi.</p>
+
+        <p>
+            © 2026 GameStore | Toko Game Online
+        </p>
+
     </footer>
 
+
     <script>
-        function beliGame(namaGame) {
-            alert(
-                "Kamu memilih " + namaGame +
-                ". Silakan hubungi admin untuk melanjutkan pembelian."
-            );
+
+        let hargaGame = 0;
+
+
+        // MEMILIH GAME
+        function pilihGame(namaGame, harga) {
+
+            hargaGame = harga;
+
+            document.getElementById("gameDipilih").value =
+                namaGame;
+
+            document.getElementById("totalHarga").innerText =
+                formatRupiah(harga);
+
+            document.getElementById("checkout").style.display =
+                "block";
+
+            document.getElementById("checkout")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
         }
+
+
+        // FORMAT RUPIAH
+        function formatRupiah(angka) {
+
+            return new Intl.NumberFormat(
+                "id-ID",
+                {
+                    style: "currency",
+                    currency: "IDR",
+                    minimumFractionDigits: 0
+                }
+            ).format(angka);
+
+        }
+
+
+        // PILIH METODE PEMBAYARAN
+        function ubahPembayaran() {
+
+            let metode =
+                document.getElementById("payment").value;
+
+            let info =
+                document.getElementById("paymentInfo");
+
+            let qris =
+                document.getElementById("qrisBox");
+
+            let bukti =
+                document.getElementById("buktiBox");
+
+
+            // Sembunyikan semuanya terlebih dahulu
+            info.style.display = "none";
+
+            qris.style.display = "none";
+
+            bukti.style.display = "none";
+
+
+            // QRIS
+            if (metode === "qris") {
+
+                qris.style.display = "block";
+
+                bukti.style.display = "block";
+
+            }
+
+
+            // DANA
+            else if (metode === "dana") {
+
+                info.style.display = "block";
+
+                info.innerHTML =
+                    "<h3>📱 DANA</h3>" +
+                    "<p>Nomor DANA: 0812-XXXX-XXXX</p>" +
+                    "<p>Atas Nama: GameStore</p>";
+
+                bukti.style.display = "block";
+
+            }
+
+
+            // GOPAY
+            else if (metode === "gopay") {
+
+                info.style.display = "block";
+
+                info.innerHTML =
+                    "<h3>📱 GoPay</h3>" +
+                    "<p>Nomor GoPay: 0812-XXXX-XXXX</p>" +
+                    "<p>Atas Nama: GameStore</p>";
+
+                bukti.style.display = "block";
+
+            }
+
+
+            // OVO
+            else if (metode === "ovo") {
+
+                info.style.display = "block";
+
+                info.innerHTML =
+                    "<h3>📱 OVO</h3>" +
+                    "<p>Nomor OVO: 0812-XXXX-XXXX</p>" +
+                    "<p>Atas Nama: GameStore</p>";
+
+                bukti.style.display = "block";
+
+            }
+
+
+            // BCA
+            else if (metode === "bca") {
+
+                info.style.display = "block";
+
+                info.innerHTML =
+                    "<h3>🏦 Bank BCA</h3>" +
+                    "<p>Nomor Rekening: 1234567890</p>" +
+                    "<p>Atas Nama: GameStore</p>";
+
+                bukti.style.display = "block";
+
+            }
+
+
+            // BRI
+            else if (metode === "bri") {
+
+                info.style.display = "block";
+
+                info.innerHTML =
+                    "<h3>🏦 Bank BRI</h3>" +
+                    "<p>Nomor Rekening: 9876543210</p>" +
+                    "<p>Atas Nama: GameStore</p>";
+
+                bukti.style.display = "block";
+
+            }
+
+        }
+
+
+        // CEK BUKTI PEMBAYARAN
+        function cekBukti() {
+
+            let file =
+                document.getElementById(
+                    "buktiPembayaran"
+                ).files[0];
+
+            let fileName =
+                document.getElementById(
+                    "fileName"
+                );
+
+
+            if (!file) {
+
+                fileName.style.display = "none";
+
+                return;
+
+            }
+
+
+            // Batas 15 MB
+            const maxSize =
+                15 * 1024 * 1024;
+
+
+            if (file.size > maxSize) {
+
+                alert(
+                    "❌ Ukuran file terlalu besar. " +
+                    "Maksimal 15 MB."
+                );
+
+                document.getElementById(
+                    "buktiPembayaran"
+                ).value = "";
+
+                fileName.style.display = "none";
+
+                return;
+
+            }
+
+
+            fileName.innerText =
+                "✅ Bukti pembayaran: " +
+                file.name;
+
+            fileName.style.display = "block";
+
+        }
+
+
+        // PROSES PEMBAYARAN
+        function prosesPembayaran() {
+
+            let nama =
+                document.getElementById("nama").value;
+
+            let email =
+                document.getElementById("email").value;
+
+            let game =
+                document.getElementById("gameDipilih").value;
+
+            let metode =
+                document.getElementById("payment").value;
+
+            let bukti =
+                document.getElementById(
+                    "buktiPembayaran"
+                ).files[0];
+
+
+            // Validasi
+            if (
+                nama === "" ||
+                email === "" ||
+                game === "" ||
+                metode === ""
+            ) {
+
+                alert(
+                    "⚠️ Silakan lengkapi data pembelian."
+                );
+
+                return;
+
+            }
+
+
+            // Bukti wajib diupload
+            if (!bukti) {
+
+                alert(
+                    "⚠️ Silakan upload bukti pembayaran terlebih dahulu."
+                );
+
+                return;
+
+            }
+
+
+            // Berhasil
+            alert(
+                "✅ Pesanan berhasil dikirim!\n\n" +
+
+                "Game: " +
+                game +
+
+                "\nPembeli: " +
+                nama +
+
+                "\nEmail: " +
+                email +
+
+                "\nMetode: " +
+                metode.toUpperCase() +
+
+                "\nTotal: " +
+                formatRupiah(hargaGame) +
+
+                "\n\nBukti pembayaran: " +
+                bukti.name
+            );
+
+        }
+
     </script>
 
 </body>
-</html>
+    </html>
